@@ -3,6 +3,7 @@ html, body {
     height: 100%;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
+    overflow-x: hidden;
 }
 
 *, *:before, *:after {
@@ -73,6 +74,7 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: relative;
 }
 
 .pokemon {
@@ -85,6 +87,7 @@ main {
     align-items: flex-end;
     position: relative;
     background: linear-gradient(black -30%, rgb(167, 167, 167) 70%);
+    margin-right: 320px;
 }
 
 .pokemon img{
@@ -95,10 +98,12 @@ main {
 
 .oak {
     height: 400px;
-    width: 400px;
+    width: 256px;
     display: flex;
     justify-content: center;
     cursor: pointer;
+    position: absolute;
+    right: 300px;
 }
 
 .oak img {
@@ -173,7 +178,7 @@ footer {
 .signature {
     position: absolute;
     left: 5px;
-    bottom: 5px;
+    bottom: 8px;
     font-size: 9px; 
 }
 
@@ -226,5 +231,53 @@ footer {
     }
     0%, 100% {
         transform: translateX(0);
+    }
+}
+
+.hide {
+    animation: hide 1s linear forwards;
+}
+
+@keyframes hide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-300px);
+    }
+}
+
+.show {
+    animation: show 1s linear forwards;
+}
+
+@keyframes show {
+    0% {
+        transform: translateX(-300px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.oak-flee {
+    animation: flee 7s linear forwards;
+}
+
+@keyframes flee {
+    15%, 25% {
+        transform: translateX(150px);
+    }
+    40%, 50% {
+        transform: translateX(300px);
+    }
+    55% {
+        transform: translateX(600px);
+    }
+    56%, 100% {
+        transform: rotate(-90deg) translateY(700px);
+    }
+    80%, 95% {
+        transform: rotate(-90deg) translateY(500px);
     }
 }
