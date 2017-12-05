@@ -59,6 +59,7 @@ h1 {
     margin : 20px 0;
     height: 120px;
     width: 120px;
+    z-index: 10;
 }
 
 .ball-box img {
@@ -97,6 +98,7 @@ main {
     width: 400px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .oak img {
@@ -134,6 +136,7 @@ main {
     border-radius: 25px;
     height: 80%;
     width: 22%;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -142,6 +145,10 @@ main {
 .option1-bar, .option2-bar {
     padding-left: 40px;
     display: flex;
+}
+
+.option1, .option2 {
+    cursor: pointer;
 }
 
 .option1-bar:hover, .option2-bar:hover {
@@ -207,12 +214,15 @@ footer {
 }
 
 .ball-box:active {
-    animation: send 1s linear;
+    animation: send 3s linear;
 }
 
 @keyframes send {
-    50% {
-        transform: translateX(200px);
+    33% {
+        transform: translateX(500%);
+    }
+    67% {
+        transform: translate(500%);
     }
     0%, 100% {
         transform: translateX(0);
