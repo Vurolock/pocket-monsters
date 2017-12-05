@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="images/pokeball-icon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">    
     <link rel="stylesheet" href="stylesheets/main.css">
     <title>Pocket Monsters</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Now, USER, which POKéMON do you want?</h1>
+    </header>
+    <div class="center">
+        <sidebar class="pokeball-display">
+            <div class="ball-boxes">
+                <div class="ball-box"><img src="images/pokeball-sidebar.png"></div>
+                <div class="ball-box"><img src="images/pokeball-sidebar.png"></div>
+                <div class="ball-box"><img src="images/pokeball-sidebar.png"></div>
+            </div>
+        </sidebar>
+        <main>
+            <div class="pokemon"></div>
+        </main>
+    </div>
+    <div class="prompt-zone"></div>
+    <footer>
+        <div class="pokemon-trainer"><img src="images/pokemon-trainer.png" alt=""></div>
+    </footer>
     <script src="scripts/main.js"></script>
 </body>
 </html>
