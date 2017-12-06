@@ -60,6 +60,7 @@ h1 {
     margin: 20px 0;
     height: 120px;
     width: 120px;
+    z-index: 2;
 }
 
 .ball-box img {
@@ -181,14 +182,14 @@ footer {
     font-size: 9px; 
 }
 
-.pokemon-trainer {
-    height: 90%;
+.ash {
+    height: 75%;
     position: absolute;
     right: 10px;
     bottom: -1px;
 }
 
-.pokemon-trainer img {
+.ash img {
     height: 100%;
 }
 
@@ -305,5 +306,15 @@ footer {
     }
     90% {
         transform: rotate(-360deg) translateY(-50px);
+    }
+}
+
+.ash-move {
+    animation: walk 20s linear forwards;
+}
+
+@keyframes walk {
+    100% {
+        transform: translateX(-2000px);
     }
 }

@@ -8,6 +8,9 @@ var OAK_SEL = "[data-oak]";
 var OPTN1_SEL = "[data-option1]";
 var OPTN2_SEL = "[data-option2]";
 var BLBXS_SEL = "[data-ball-boxes]";
+var ASH_SEL = "[data-ash]";
+
+var USER = prompt("First, what is your name?");
 
 var charText = "So! You want the fire POKéMON, Charmander?";
 var squirtText = "So! You want the water POKéMON, Squirtle?";
@@ -18,7 +21,7 @@ var option2Text = "No";
 var sorryText = "Sorry!";
 var yikesText = "C'mere Gramps!";
 var yesText = "This POKéMON is really energetic!";
-var noText = "Now, USER, which POKéMON do you want? (click a pokéball!)";
+var noText = "Now, " + USER + ", which POKéMON do you want? (click a pokéball!)";
 var oakResponse1 = "Just don't do it again... Here. Pick a POKéMON.";
 var oakResponse2 = "I'm out of here. I don't get paid enough for this shit.";
 var oakResponse3 = "Seriously, kid. No touching. I won't tell you again.";
@@ -36,6 +39,11 @@ var ballBoxesTarget = document.querySelector(BLBXS_SEL);
 var charTarget = document.querySelector(CHAR_SEL);
 var squirtTarget = document.querySelector(SQUIRT_SEL);
 var bulbTarget = document.querySelector(BULB_SEL);
+var ashTarget = document.querySelector(ASH_SEL);
+
+if (USER != '') {
+    txtTarget.textContent = noText;
+}
 
 pokemonList.forEach(function (pokeball) {
     pokeball.addEventListener('click', function (event) {
@@ -129,6 +137,9 @@ option2Target.addEventListener('click', function (event) {
     }
 });
 
+ashTarget.addEventListener('click', function (event) {
+    ashTarget.setAttribute('class', 'ash-move ash')
+});
+
 // Lets balls move multiple times
-// Move Ash and Pikachu when clicked
 // Fix Oak responses, new animation for ass-whooping
