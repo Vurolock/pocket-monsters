@@ -9,8 +9,14 @@ var OPTN1_SEL = "[data-option1]";
 var OPTN2_SEL = "[data-option2]";
 var BLBXS_SEL = "[data-ball-boxes]";
 var ASH_SEL = "[data-ash]";
+var PIKA_SEL = "[data-pikachu]";
+var ASHPIKA_SEL = "[data-ash-pikachu]";
+var ASHIMG_SEL = "[data-ash-image]";
+var PIKAIMG_SEL = "[data-pikachu-image]";
+var SIG_SEL = "[data-sig]";
 
-var USER = prompt("First, what is your name?").toUpperCase();
+// var USER = prompt("First, what is your name?").toUpperCase();
+var USER = 'lala';
 
 var charText = "So! You want the fire POKéMON, Charmander?";
 var squirtText = "So! You want the water POKéMON, Squirtle?";
@@ -42,6 +48,11 @@ var charTarget = document.querySelector(CHAR_SEL);
 var squirtTarget = document.querySelector(SQUIRT_SEL);
 var bulbTarget = document.querySelector(BULB_SEL);
 var $ashTarget = $(ASH_SEL);
+var $pikaTarget = $(PIKA_SEL);
+var $ashPikaTarget = $(ASHPIKA_SEL);
+var $ashImgTarget = $(ASHIMG_SEL);
+var $pikaImgTarget = $(PIKAIMG_SEL);
+var $sigTarget = $(SIG_SEL);
 
 txtTarget.textContent = noText;
 
@@ -138,10 +149,44 @@ option2Target.addEventListener('click', function (event) {
     }
 });
 
-$ashTarget.on('click', function (event) {
-    $ashTarget.addClass('ash-move')
+$ashPikaTarget.on('click', function (event) {
+
+    function turnCharacter(character, direction) {
+        var whoTarget;
+        var leftRight;
+
+        if (character == "ash") {
+            whoTarget = $ashImgTarget;
+
+            if (direction =='left') {
+                leftRight = 'images/ash-left.png';
+
+            } else {
+                leftRight = 'images/ash-right.png';
+            }
+
+        } else {
+            whoTarget = $pikaImgTarget;
+
+            if (direction =='left') {
+                leftRight = 'images/pikachu-left.png';
+
+            } else {
+                leftRight = 'images/pikachu-right.png';
+            }
+        }
+        whoTarget.attr('src', leftRight);
+    }
+
+    $ashTarget.addClass('ash-move1');
+    $pikaTarget.addClass('pikachu-move1');
+    $sigTarget.addClass('sig-move');
+
+    setTimeout(turnCharacter, 5000, 'ash', 'right');
+    setTimeout(turnCharacter, 5000, 'pika', 'right');
 });
 
 // Lets balls move multiple times
 // Fix Oak responses, new animation for ass-whooping
-// Make Ash animation better
+// Make Ash animation better - pikachu sits behind for a second looking around, ash turns to watch. pikachu runs up fast
+// add audio to pokemon cry and oak?
