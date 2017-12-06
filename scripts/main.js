@@ -21,6 +21,10 @@ var yesText = "This POKéMON is really energetic!";
 var noText = "Now, USER, which POKéMON do you want? (click a pokéball!)";
 var oakResponse1 = "Just don't do it again... Here. Pick a POKéMON.";
 var oakResponse2 = "I'm out of here. I don't get paid enough for this shit.";
+var oakResponse3 = "Seriously, kid. No touching. I won't tell you again.";
+var oakResponse4 = "YOU'RE DONE TWERP! AAARRRRGGHHHHHH!!!!!";
+
+var oakMad = 0;
 
 var pokemonList = document.querySelectorAll(PKMN_SEL);
 var imgTarget = document.querySelector(IMG_SEL);
@@ -98,8 +102,15 @@ option1Target.addEventListener('click', function (event) {
         imgTarget.setAttribute('class', 'pokemon-cry');
 
     } else if (txtTarget.hasAttribute('data-oak-text')) {
+        if (oakMad = 1) {
+            oakResponse1 = oakResponse3;
+        } else if (oakMad > 1) {
+            oakResponse1 = oakResponse4;
+            oakTarget.setAttribute('class', 'oak-flee');            
+        }
         txtTarget.textContent = oakResponse1;
         ballBoxesTarget.setAttribute('class', 'ball-boxes show');
+        oakMad++;
     }
 });
 
@@ -120,4 +131,4 @@ option2Target.addEventListener('click', function (event) {
 
 // Lets balls move multiple times
 // Move Ash and Pikachu when clicked
-// Count Oak responses, do something
+// Fix Oak responses, new animation for ass-whooping
