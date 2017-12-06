@@ -13,10 +13,20 @@ var PIKA_SEL = "[data-pikachu]";
 var ASHPIKA_SEL = "[data-ash-pikachu]";
 var ASHIMG_SEL = "[data-ash-image]";
 var PIKAIMG_SEL = "[data-pikachu-image]";
+var MEW_SEL = "[data-mew]";
 var SIG_SEL = "[data-sig]";
 
-// var USER = prompt("First, what is your name?").toUpperCase();
-var USER = 'lala';
+alert("Pocket-monsters' optimal screen width is 1600px. Enjoy!");
+
+var USER = prompt("First, what is your name?");
+
+if (USER == null || USER == '') {
+    USER = "TRAINER";
+
+} else {
+    USER = USER.toUpperCase();
+}
+
 
 var charText = "So! You want the fire POKéMON, Charmander?";
 var squirtText = "So! You want the water POKéMON, Squirtle?";
@@ -28,7 +38,7 @@ var sorryText = "Sorry!";
 var yikesText = "C'mere Gramps!";
 
 var yesText = "This POKéMON is really energetic!";
-var noText = "Now, " + USER + ", which POKéMON do you want? (click a pokéball!)";
+var noText = "Now, " + USER + ", which POKéMON do you want? (click a POKé BALL!)";
 
 var oakText = "THOSE ARE NOT THE RIGHT BALLS YOU LITTLE PERVERT!";
 var oakResponse1 = "Just don't do it again... Here. Pick a POKéMON.";
@@ -52,6 +62,7 @@ var $pikaTarget = $(PIKA_SEL);
 var $ashPikaTarget = $(ASHPIKA_SEL);
 var $ashImgTarget = $(ASHIMG_SEL);
 var $pikaImgTarget = $(PIKAIMG_SEL);
+var $mewTarget = $(MEW_SEL);
 var $sigTarget = $(SIG_SEL);
 
 txtTarget.textContent = noText;
@@ -208,18 +219,23 @@ $ashPikaTarget.on('click', function (event) {
     $pikaTarget.addClass('pikachu-move');
     $sigTarget.addClass('sig-move');
 
-    setTimeout(pause, 7500, 'ash');
-    setTimeout(turnCharacter, 7500, 'ash', 'right');
-    setTimeout(turnCharacter, 8300, 'ash', 'left');
-    setTimeout(unpause, 8300, 'ash');
+    function mewFly() {
+        $mewTarget.addClass('mew-move');
+    }
 
-    setTimeout(pause, 6800, 'pika');
-    setTimeout(turnCharacter, 7000, 'pika', 'right');
-    setTimeout(turnCharacter, 8000, 'pika', 'left');
-    setTimeout(unpause, 8000, 'pika');
+    setTimeout(pause, 10500, 'ash');
+    setTimeout(turnCharacter, 10600, 'ash', 'right');
+    setTimeout(turnCharacter, 12500, 'ash', 'left');
+    setTimeout(unpause, 12500, 'ash');
+
+    setTimeout(pause, 9500, 'pika');
+    setTimeout(turnCharacter, 9800, 'pika', 'right');
+    setTimeout(turnCharacter, 12000, 'pika', 'left');
+    setTimeout(unpause, 12000, 'pika');
+
+    setTimeout(mewFly, 8800);
 });
 
 // Lets balls move multiple times
 // Fix Oak responses, new animation for ass-whooping
-// Make Ash animation better - pikachu sits behind for a second looking around, ash turns to watch. pikachu runs up fast
 // add audio to pokemon cry and oak?

@@ -207,7 +207,14 @@ footer {
     bottom: 1px;
 }
 
-.ash-pikachu-zone img {
+.mew {
+    position: absolute;
+    height: 50%;
+    top: 2px;
+    right: -50px;
+}
+
+footer img {
     height: 100%;
     z-index: 1;
 }
@@ -245,10 +252,10 @@ footer {
 
 @keyframes send {
     33% {
-        transform: translateX(400px);
+        transform: translateX(350px);
     }
     67% {
-        transform: translate(400px);
+        transform: translate(350px);
     }
     0%, 100% {
         transform: translateX(0);
@@ -329,7 +336,7 @@ footer {
 }
 
 .ash-move {
-    animation: ash-walk 12s linear forwards;
+    animation: ash-walk 16s linear forwards;
 }
 
 @keyframes ash-walk {
@@ -487,7 +494,7 @@ footer {
 }
 
 .pikachu-move {
-    animation: pika-walk 3s linear 3 forwards;
+    animation: pika-walk 3.8s linear 3 forwards;
 }
 
 @keyframes pika-walk {
@@ -644,6 +651,19 @@ footer {
     }
 }
 
+.mew-move {
+    animation: mew-fly 2s linear;
+}
+
+@keyframes mew-fly {
+    30%, 90% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translate(-1000px, -8px);
+    }
+}
+
 .sig-move {
     animation: cloud 2s linear 8;
 }
@@ -651,7 +671,7 @@ footer {
 @keyframes cloud {
 
     50% {
-        transform: translateY(3px);
+        transform: translateY(4px);
     }
     100% {
         transform: translateY(0);
