@@ -178,12 +178,45 @@ $ashPikaTarget.on('click', function (event) {
         whoTarget.attr('src', leftRight);
     }
 
-    $ashTarget.addClass('ash-move1');
-    $pikaTarget.addClass('pikachu-move1');
+    function pause(character) {
+
+        if (character == "ash") {
+            var whoTarget;
+
+            whoTarget = $ashTarget;
+
+        } else {
+            whoTarget = $pikaTarget;
+        }   
+        whoTarget.addClass('pause');
+    }
+
+    function unpause(character) {
+        
+        if (character == "ash") {
+            var whoTarget;
+
+            whoTarget = $ashTarget;
+
+        } else {
+            whoTarget = $pikaTarget;
+        }   
+        whoTarget.removeClass('pause');
+    }
+
+    $ashTarget.addClass('ash-move');
+    $pikaTarget.addClass('pikachu-move');
     $sigTarget.addClass('sig-move');
 
-    setTimeout(turnCharacter, 5000, 'ash', 'right');
-    setTimeout(turnCharacter, 5000, 'pika', 'right');
+    setTimeout(pause, 7500, 'ash');
+    setTimeout(turnCharacter, 7500, 'ash', 'right');
+    setTimeout(turnCharacter, 8300, 'ash', 'left');
+    setTimeout(unpause, 8300, 'ash');
+
+    setTimeout(pause, 6800, 'pika');
+    setTimeout(turnCharacter, 7000, 'pika', 'right');
+    setTimeout(turnCharacter, 8000, 'pika', 'left');
+    setTimeout(unpause, 8000, 'pika');
 });
 
 // Lets balls move multiple times

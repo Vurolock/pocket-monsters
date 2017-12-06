@@ -328,11 +328,11 @@ footer {
     }
 }
 
-.ash-move1 {
-    animation: ash-walk1 10s linear forwards;
+.ash-move {
+    animation: ash-walk 12s linear forwards;
 }
 
-@keyframes ash-walk1 {
+@keyframes ash-walk {
 
     2% {
         transform: translate(-40px, 3px);
@@ -486,19 +486,11 @@ footer {
     }
 }
 
-.ash-move2 {
-    animation: ash-walk2 5s linear forwards;
+.pikachu-move {
+    animation: pika-walk 3s linear 3 forwards;
 }
 
-@keyframes ash-walk2 {
-
-}
-
-.pikachu-move1 {
-    animation: pika-walk1 3.33s linear 3 forwards;
-}
-
-@keyframes pika-walk1 {
+@keyframes pika-walk {
 
     2% {
         transform: translate(-40px, 2px);
@@ -652,33 +644,20 @@ footer {
     }
 }
 
-.pikachu-move2 {
-    animation: pikachu-walk2 5s linear forwards;
-}
-
-@keyframes pikachu-walk2 {
-    
-}
-
 .sig-move {
-    animation: cloud 10s linear;
+    animation: cloud 2s linear 8;
 }
 
 @keyframes cloud {
 
-    20% {
+    50% {
         transform: translateY(3px);
-    }
-    40% {
-        transform: translateY(-3px);
-    }
-    60% {
-        transform: translateY(3px);
-    }
-    80% {
-        transform: translateY(-3px);
     }
     100% {
         transform: translateY(0);
     }
+}
+
+.pause {
+    animation-play-state: paused;
 }
