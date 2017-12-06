@@ -10,27 +10,29 @@ var OPTN2_SEL = "[data-option2]";
 var BLBXS_SEL = "[data-ball-boxes]";
 var ASH_SEL = "[data-ash]";
 
-var USER = prompt("First, what is your name?");
+var USER = prompt("First, what is your name?").toUpperCase();
 
 var charText = "So! You want the fire POKéMON, Charmander?";
 var squirtText = "So! You want the water POKéMON, Squirtle?";
 var bulbText = "So! You want the plant POKéMON, Bulbasaur?";
-var oakText = "THOSE ARE NOT THE RIGHT BALLS YOU LITTLE PERVERT!";
+
 var option1Text = "Yes";
 var option2Text = "No";
 var sorryText = "Sorry!";
 var yikesText = "C'mere Gramps!";
+
 var yesText = "This POKéMON is really energetic!";
 var noText = "Now, " + USER + ", which POKéMON do you want? (click a pokéball!)";
+
+var oakText = "THOSE ARE NOT THE RIGHT BALLS YOU LITTLE PERVERT!";
 var oakResponse1 = "Just don't do it again... Here. Pick a POKéMON.";
 var oakResponse2 = "I'm out of here. I don't get paid enough for this shit.";
 var oakResponse3 = "Seriously, kid. No touching. I won't tell you again.";
 var oakResponse4 = "YOU'RE DONE TWERP! AAARRRRGGHHHHHH!!!!!";
-
 var oakMad = 0;
 
-var pokemonList = document.querySelectorAll(PKMN_SEL);
-var imgTarget = document.querySelector(IMG_SEL);
+var $pokemonList = $(PKMN_SEL);
+var $imgTarget = $(IMG_SEL);
 var txtTarget = document.querySelector(TXT_SEL);
 var oakTarget = document.querySelector(OAK_SEL);
 var option1Target = document.querySelector(OPTN1_SEL);
@@ -39,18 +41,17 @@ var ballBoxesTarget = document.querySelector(BLBXS_SEL);
 var charTarget = document.querySelector(CHAR_SEL);
 var squirtTarget = document.querySelector(SQUIRT_SEL);
 var bulbTarget = document.querySelector(BULB_SEL);
-var ashTarget = document.querySelector(ASH_SEL);
+var $ashTarget = $(ASH_SEL);
 
-if (USER != '') {
-    txtTarget.textContent = noText;
-}
+txtTarget.textContent = noText;
 
-pokemonList.forEach(function (pokeball) {
+
+$pokemonList.each(function (i, pokeball) {
     pokeball.addEventListener('click', function (event) {
         event.preventDefault();
 
         function replaceImg() {
-            imgTarget.setAttribute('src', pokeball.getAttribute('href'));
+            $imgTarget.attr('src', pokeball.getAttribute('href'));
         }
         setTimeout(replaceImg, 1500);
         
@@ -107,7 +108,7 @@ option1Target.addEventListener('click', function (event) {
 
     if (txtTarget.hasAttribute('data-yes-no')) {
         txtTarget.textContent = yesText;
-        imgTarget.setAttribute('class', 'pokemon-cry');
+        $imgTarget.addClass('pokemon-cry');
 
     } else if (txtTarget.hasAttribute('data-oak-text')) {
         if (oakMad = 1) {
@@ -137,9 +138,10 @@ option2Target.addEventListener('click', function (event) {
     }
 });
 
-ashTarget.addEventListener('click', function (event) {
-    ashTarget.setAttribute('class', 'ash-move ash')
+$ashTarget.on('click', function (event) {
+    $ashTarget.addClass('ash-move')
 });
 
 // Lets balls move multiple times
 // Fix Oak responses, new animation for ass-whooping
+// Make Ash animation better
