@@ -60,6 +60,7 @@ option1Target.addEventListener('click', function (event) {
 
     if (txtTarget.hasAttribute('data-yes-no')) {
         txtTarget.textContent = yesText;
+        imgTarget.setAttribute('class', 'pokemon-cry');
 
     } else if (txtTarget.hasAttribute('data-oak-text')) {
         txtTarget.textContent = oakResponse1;

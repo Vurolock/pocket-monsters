@@ -281,3 +281,28 @@ footer {
         transform: rotate(-90deg) translateY(500px);
     }
 }
+
+.pokemon-cry {
+    animation: cry 2s linear;
+}
+
+@keyframes cry {
+    0%, 50%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-60px);
+    }
+    60% {
+        transform: rotate(-90deg);
+    }
+    70% {
+        transform: rotate(-180deg);
+    }
+    80% {
+        transform: rotate(-270deg);
+    }
+    90% {
+        transform: rotate(-360deg);
+    }
+}
