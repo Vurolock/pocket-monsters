@@ -1,4 +1,7 @@
 var PKMN_SEL = "[data-pokemon]";
+var CHAR_SEL = "[data-char-ball]";
+var SQUIRT_SEL = "[data-squirt-ball]";
+var BULB_SEL = "[data-bulb-ball]";
 var IMG_SEL = "[data-image-target]";
 var TXT_SEL = "[data-text-target]";
 var OAK_SEL = "[data-oak]";
@@ -26,21 +29,53 @@ var oakTarget = document.querySelector(OAK_SEL);
 var option1Target = document.querySelector(OPTN1_SEL);
 var option2Target = document.querySelector(OPTN2_SEL);
 var ballBoxesTarget = document.querySelector(BLBXS_SEL);
+var charTarget = document.querySelector(CHAR_SEL);
+var squirtTarget = document.querySelector(SQUIRT_SEL);
+var bulbTarget = document.querySelector(BULB_SEL);
 
 pokemonList.forEach(function (pokeball) {
     pokeball.addEventListener('click', function (event) {
         event.preventDefault();
-        imgTarget.setAttribute('src', pokeball.getAttribute('href'));
-        ballBoxesTarget.setAttribute('class', 'hide ball-boxes');
+
+        function replaceImg() {
+            imgTarget.setAttribute('src', pokeball.getAttribute('href'));
+        }
+        setTimeout(replaceImg, 1500);
+        
+        function hideBallBoxes() {
+            ballBoxesTarget.setAttribute('class', 'hide ball-boxes');
+        }
+        setTimeout(hideBallBoxes, 3000);
+
+        function replaceText(pkmn) {
+            txtTarget.textContent = pkmn;
+        }
+
+        function openPokeball(pkmn) {
+            pkmn.setAttribute('src', 'images/pokeball-sidebar-open.png');
+        }
+
+        function closePokeball(pkmn) {
+            pkmn.setAttribute('src', 'images/pokeball-sidebar.png');
+        }
 
         if (pokeball.getAttribute('href') == "images/charmander.png") {
-            txtTarget.textContent = charText;
+            setTimeout(openPokeball, 1200, charTarget);
+            setTimeout(closePokeball, 2000, charTarget);
+            setTimeout(replaceText, 1500, charText);
+            charTarget.setAttribute('class', 'ball-send');
         
         } else if (pokeball.getAttribute('href') == "images/squirtle.png") {
-            txtTarget.textContent = squirtText;
+            setTimeout(openPokeball, 1200, squirtTarget);
+            setTimeout(closePokeball, 2000, squirtTarget);
+            setTimeout(replaceText, 1500, squirtText);
+            squirtTarget.setAttribute('class', 'ball-send');
         
         } else {
-            txtTarget.textContent = bulbText;
+            setTimeout(openPokeball, 1200, bulbTarget);
+            setTimeout(closePokeball, 2000, bulbTarget);
+            setTimeout(replaceText, 1500, bulbText);
+            bulbTarget.setAttribute('class', 'ball-send');
         }
         option1Target.textContent = option1Text;
         option2Target.textContent = option2Text;
@@ -83,10 +118,6 @@ option2Target.addEventListener('click', function (event) {
     }
 });
 
-// Add pokeball move/open animation
-// Wait for animation to spawn pokemon
-// Move Oak when clicked
+// Lets balls move multiple times
 // Move Ash and Pikachu when clicked
-// Change text when yes/no is clicked
 // Count Oak responses, do something
-// Make pokemon move when spawned and 'yes' is selected.

@@ -57,10 +57,9 @@ h1 {
 }
 
 .ball-box {
-    margin : 20px 0;
+    margin: 20px 0;
     height: 120px;
     width: 120px;
-    z-index: 10;
 }
 
 .ball-box img {
@@ -218,16 +217,18 @@ footer {
     }
 }
 
-.ball-box:active {
+.ball-send {
+    height: 120px;
+    width: 120px;
     animation: send 3s linear;
 }
 
 @keyframes send {
     33% {
-        transform: translateX(500%);
+        transform: translateX(400px);
     }
     67% {
-        transform: translate(500%);
+        transform: translate(400px);
     }
     0%, 100% {
         transform: translateX(0);
@@ -294,15 +295,15 @@ footer {
         transform: translateY(-60px);
     }
     60% {
-        transform: rotate(-90deg);
+        transform: rotate(-90deg) translateX(50px);
     }
     70% {
-        transform: rotate(-180deg);
+        transform: rotate(-180deg) translateY(50px); 
     }
     80% {
-        transform: rotate(-270deg);
+        transform: rotate(-270deg) translateX(-50px);
     }
     90% {
-        transform: rotate(-360deg);
+        transform: rotate(-360deg) translateY(-50px);
     }
 }
