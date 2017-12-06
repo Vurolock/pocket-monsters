@@ -2,7 +2,7 @@ html, body {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P', cursive, sans-serif;
     overflow-x: hidden;
 }
 
@@ -209,7 +209,7 @@ footer {
 
 .mew {
     position: absolute;
-    height: 50%;
+    height: 65%;
     top: 2px;
     right: -50px;
 }
@@ -680,4 +680,39 @@ footer img {
 
 .pause {
     animation-play-state: paused;
+}
+
+.display {
+    display: none;
+    width: 50%;
+    align-self: center;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1439px), screen and (max-height: 799px) {
+    footer, .pokeball-display, main, .text-box {
+        display: none;
+    }
+
+    .center {
+        justify-content: center;
+    }
+    
+    .display {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1921px), screen and (min-height: 1081px) {
+    footer, .pokeball-display, main, .text-box {
+        display: none;
+    }
+
+    .center {
+        justify-content: center;
+    }
+    
+    .display {
+        display: block;
+    }
 }
