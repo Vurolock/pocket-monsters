@@ -42,7 +42,7 @@ var noText = "Now, " + USER + ", which POKéMON do you want? (click a POKé BALL
 var oakText = "THOSE ARE NOT THE RIGHT BALLS YOU LITTLE PERVERT!";
 var oakResponse1 = "Just don't do it again... Here. Pick a POKéMON.";
 var oakResponse2 = "I'm out of here. I don't get paid enough for this shit.";
-var oakResponse3 = "Seriously, kid. No touching. I won't tell you again.";
+var oakResponse3 = "Seriously, kid. No touching. I won't tell you again. Get a POKéMON and get out.";
 var oakResponse4 = "YOU'RE DONE TWERP! AAARRRRGGHHHHHH!!!!!";
 var oakMad = 0;
 
@@ -148,8 +148,10 @@ option1Target.addEventListener('click', function (event) {
         $imgTarget.addClass('pokemon-cry');
 
     } else if (txtTarget.hasAttribute('data-oak-text')) {
-        if (oakMad = 1) {
+
+        if (oakMad == 1) {
             oakResponse1 = oakResponse3;
+
         } else if (oakMad > 1) {
             oakResponse1 = oakResponse4;
             oakTarget.setAttribute('class', 'oak-flee');            
@@ -157,6 +159,9 @@ option1Target.addEventListener('click', function (event) {
         txtTarget.textContent = oakResponse1;
         ballBoxesTarget.setAttribute('class', 'ball-boxes show');
         oakMad++;
+        option1Target.textContent = '';
+        option2Target.textContent = '';
+        txtTarget.removeAttribute('data-oak-text');
     }
 });
 

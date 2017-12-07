@@ -60,7 +60,6 @@ h1 {
     margin: 20px 0;
     height: 120px;
     width: 120px;
-    z-index: 2;
 }
 
 .ball-box img {
@@ -78,6 +77,7 @@ main {
 }
 
 .pokemon {
+    z-index: 1;
     height: 400px;
     width: 400px;
     border: 2px solid black;
@@ -91,9 +91,9 @@ main {
 }
 
 .pokemon img{
+    z-index: 3;
     max-width: 300px;
     padding-bottom: 20px;
-    z-index: 1;
 }
 
 .oak {
@@ -111,6 +111,7 @@ main {
 }
 
 .shadow {
+    z-index: 2;
     position: absolute;
     background: radial-gradient(black, rgb(167, 167, 167) 70%);
     width: 340px;
@@ -192,10 +193,11 @@ footer {
     right: 0;
 }
 
-.ash, .pikachu {
+.ash, .pikachu, .mew {
     cursor: pointer;
     height: 75%;
     position: absolute;
+    z-index: 1;
 }
 
 .ash {
@@ -209,7 +211,6 @@ footer {
 }
 
 .mew {
-    position: absolute;
     height: 65%;
     top: 2px;
     right: -50px;
@@ -217,7 +218,6 @@ footer {
 
 footer img {
     height: 100%;
-    z-index: 1;
 }
 
 .ball-box:hover {
