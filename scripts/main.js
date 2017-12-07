@@ -15,8 +15,7 @@ var ASHIMG_SEL = "[data-ash-image]";
 var PIKAIMG_SEL = "[data-pikachu-image]";
 var MEW_SEL = "[data-mew]";
 var SIG_SEL = "[data-sig]";
-
-alert("Pocket-monsters' optimal screen width is 1600px. Enjoy!");
+var SHDW_SEL = "[data-shadow]";
 
 var USER = prompt("First, what is your name?");
 
@@ -64,6 +63,7 @@ var $ashImgTarget = $(ASHIMG_SEL);
 var $pikaImgTarget = $(PIKAIMG_SEL);
 var $mewTarget = $(MEW_SEL);
 var $sigTarget = $(SIG_SEL);
+var $shdwTarget = $(SHDW_SEL);
 
 txtTarget.textContent = noText;
 
@@ -75,43 +75,58 @@ $pokemonList.each(function (i, pokeball) {
         function replaceImg() {
             $imgTarget.attr('src', pokeball.getAttribute('href'));
         }
-        setTimeout(replaceImg, 1500);
         
         function hideBallBoxes() {
             ballBoxesTarget.setAttribute('class', 'hide ball-boxes');
         }
+
+        function makeShadow() {
+            $shdwTarget.removeClass('none');
+        }
+        
+        function goPokemon(pkmn, pkmnTxt) {
+            
+            function replaceText(pkmnTxt) {
+                txtTarget.textContent = pkmnTxt;
+            }
+            
+            function openPokeball(pkmn) {
+                pkmn.setAttribute('src', 'images/pokeball-sidebar-open.png');
+            }
+            
+            function closePokeball(pkmn) {
+                pkmn.setAttribute('src', 'images/pokeball-sidebar.png');
+            }
+            
+            function sendBall(pkmn) {
+                pkmn.setAttribute('class', 'ball-send');
+            }
+            
+            function rmvSendBall(pkmn) {
+                pkmn.removeAttribute('class');
+            }
+
+            setTimeout(replaceText, 1500, pkmnTxt);
+            sendBall(pkmn);
+            setTimeout(openPokeball, 1200, pkmn);
+            setTimeout(closePokeball, 2000, pkmn);
+            setTimeout(rmvSendBall, 3100, pkmn);
+        }
+
+        setTimeout(makeShadow, 1400);
+        setTimeout(replaceImg, 1400);
         setTimeout(hideBallBoxes, 3000);
-
-        function replaceText(pkmn) {
-            txtTarget.textContent = pkmn;
-        }
-
-        function openPokeball(pkmn) {
-            pkmn.setAttribute('src', 'images/pokeball-sidebar-open.png');
-        }
-
-        function closePokeball(pkmn) {
-            pkmn.setAttribute('src', 'images/pokeball-sidebar.png');
-        }
-
+        
         if (pokeball.getAttribute('href') == "images/charmander.png") {
-            setTimeout(openPokeball, 1200, charTarget);
-            setTimeout(closePokeball, 2000, charTarget);
-            setTimeout(replaceText, 1500, charText);
-            charTarget.setAttribute('class', 'ball-send');
+            goPokemon(charTarget, charText);
         
         } else if (pokeball.getAttribute('href') == "images/squirtle.png") {
-            setTimeout(openPokeball, 1200, squirtTarget);
-            setTimeout(closePokeball, 2000, squirtTarget);
-            setTimeout(replaceText, 1500, squirtText);
-            squirtTarget.setAttribute('class', 'ball-send');
-        
+            goPokemon(squirtTarget, squirtText);
+                    
         } else {
-            setTimeout(openPokeball, 1200, bulbTarget);
-            setTimeout(closePokeball, 2000, bulbTarget);
-            setTimeout(replaceText, 1500, bulbText);
-            bulbTarget.setAttribute('class', 'ball-send');
+            goPokemon(bulbTarget, bulbText);
         }
+
         option1Target.textContent = option1Text;
         option2Target.textContent = option2Text;
         txtTarget.setAttribute('data-yes-no','');
@@ -237,5 +252,7 @@ $ashPikaTarget.on('click', function (event) {
 });
 
 // Lets balls move multiple times
+// Make balls unclickable during ball move animation
 // Fix Oak responses, new animation for ass-whooping
-// add audio to pokemon cry and oak?
+// Add audio to pokemon cry and oak?
+// Add 'ending' to site when pokemon is selected

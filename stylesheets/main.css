@@ -110,7 +110,7 @@ main {
     height: 100%;
 }
 
-.platform {
+.shadow {
     position: absolute;
     background: radial-gradient(black, rgb(167, 167, 167) 70%);
     width: 340px;
@@ -148,7 +148,7 @@ main {
 }
 
 .option1-bar, .option2-bar {
-    padding-left: 40px;
+    padding-left: 50px;
     display: flex;
 }
 
@@ -166,6 +166,7 @@ main {
 
 .selector1, .selector2 {
     display: none;
+    letter-spacing: -5px;
 }
 
 footer {
@@ -715,4 +716,8 @@ footer img {
     .display {
         display: block;
     }
+}
+
+.none {
+    display: none;
 }
